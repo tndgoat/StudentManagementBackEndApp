@@ -20,6 +20,11 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    public boolean checkIfStudentIdExists(int id) {
+        return studentRepo.existsById(id);
+    }
+
+    @Override
     public Student insertStudentIntoDatabase(Student student) {
         return studentRepo.save(student);
     }
@@ -27,15 +32,6 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Student getStudentById(int id) {
         return studentRepo.findById(id).get();
-    }
-
-    @Override
-    public Student updateStudent(int id, Student student) {
-        Student studentFromDB = studentRepo.findById(id).get();
-        studentFromDB.setName(student.getName());
-        studentFromDB.setAyear(student.getAyear());
-        studentRepo.save(studentFromDB);
-        return studentFromDB;
     }
 
     @Override

@@ -19,6 +19,11 @@ public class StudentController {
         return studentService.getAllStudents();
     }
 
+    @GetMapping("/exists/{id}")
+    public boolean checkIfStudentIdExists(@PathVariable int id) {
+        return studentService.checkIfStudentIdExists(id);
+    }
+
     @PostMapping("/insert")
     public Student insertStudentInDb(@RequestBody Student student) {
         return studentService.insertStudentIntoDatabase(student);
@@ -27,11 +32,6 @@ public class StudentController {
     @GetMapping("/find/{id}")
     public Student getStudentById(@PathVariable int id) {
         return studentService.getStudentById(id);
-    }
-
-    @PutMapping("/update/{id}")
-    public Student updateStudentById(@PathVariable int id, @RequestBody Student student) {
-        return studentService.updateStudent(id, student);
     }
 
     @DeleteMapping("/delete/{id}")

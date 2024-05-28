@@ -10,11 +10,11 @@ public interface StudentService {
 
     List<Student> getAllStudents();
 
+    boolean checkIfStudentIdExists(int id);
+
     Student insertStudentIntoDatabase(Student student);
 
     Student getStudentById(int id);
-
-    Student updateStudent(int id, Student student);
 
     Student deleteStudent(int id);
 
