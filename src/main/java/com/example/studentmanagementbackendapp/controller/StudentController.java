@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "https://student-management-app-ruby.vercel.app")
 @RequestMapping("/api/students")
 public class StudentController {
+
     @Autowired
     private StudentService studentService;
 
@@ -38,4 +39,5 @@ public class StudentController {
     public Student deleteStudentById(@PathVariable int id) {
         return studentService.deleteStudent(id);
     }
+
 }
